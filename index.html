@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ Lights & Sound</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Include Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background-color: #121212;
+            color: #fff;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #007BFF;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
+
+        .social-icons a:hover {
+            color: #FFD700;
+        }
+
+        /* Toggle button */
+        .toggle-bar {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #toggle-dark-mode {
+            background-color: #007BFF;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+
+        #toggle-dark-mode:hover {
+            background-color: #0056b3;
+        }
+
+        /* Main content */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        /* Services section */
+        .services {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 30%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            padding: 20px;
+            font-size: 1.5rem;
+            color: #121212;
+        }
+
+        .card p {
+            padding: 0 20px 20px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* Gallery section */
+        .gallery {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .gallery h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Contact section */
+        .contact {
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-info a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 99%;
+                margin-bottom: 20px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item img {
+                height: 300px;
+            }
+
+            .services .card img {
+                height: 250px;
+            }
+        }
+
+        /* Styling the horizontal rule */
+        .contact-hr {
+            border: 0;
+            height: 1px;
+            background-color: white;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        /* Adding text over the horizontal rule */
+        .contact-hr::before {
+            content: "Contact";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            background-color: #121212;
+            padding: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mahakal Lights & Sound</h1>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="social-icons">
+            <!-- Instagram, Facebook, WhatsApp, and YouTube Icons with links to accounts -->
+            <a href="https://www.instagram.com/sumit_kumar_dash?igsh=MXR0dGlxY3U4eHN4bA==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100086775334092&mibextid=ZbWKwL" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/6370594924" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.youtube.com/@kunuriderblogger?si=9d9087veNAEH634b" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+    </header>
+    <div class="toggle-bar">
+        <button id="toggle-dark-mode">Dark mode </button>
+    </div>
+    <main class="container">
+        <section id="services" class="services">
+            <h2>Our Services</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="Images/profesionaldj.jpg" alt="DJ Service">
+                    <h3>Professional DJ</h3>
+                    <p>We provide experienced DJs for weddings, parties, and events.</p>
+                </div>
+                <div class="card">
+                    <img src="Images/night.jpg" alt="DJ Service">
+                    <h3>Dynamic Lighting</h3>
+                    <p>Customizable lighting setups to enhance any venue.</p>
+                </div>
+                <div class="card">
+                    <img src="Images/soundquality.jpeg" alt="DJ Service">
+                    <h3>High-Quality Sound</h3>
+                    <p>Top-notch sound systems for clear and impactful audio.</p>
+                </div>
+            </div>
+        </section>
+        <section id="gallery" class="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="Images/weddj.jpeg" alt="Event 1">
+                    <div class="gallery-caption">Event 1 - Wedding Celebration</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/apera.jpg" alt="Event 2">
+                    <div class="gallery-caption">Event 2 - Stage Program</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/birthday.jpg" alt="Event 3">
+                    <div class="gallery-caption">Event 3 - Birthday Bash</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/cultural.jpg" alt="Event 4">
+                    <div class="gallery-caption">Event 4 - Cultural Event</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section id="contact" class="contact">
+        <!-- Horizontal rule with text -->
+        <hr class="contact-hr">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <p>Phone: <a href="tel:+91 6370594924">+91 6370594924</a></p>
+            <p>Phone: <a href="tel:+91 8220817759">+91 8220817759</a></p>
+            <p>Email: <a href="mailto:kunukunu85136@gmail.com">kunukunu85136@gmail.com</a></p>
+            
+    </section>
+    <footer>
+        <p>&copy; 2024 Mahakal Lights & Sound. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Toggle Dark Mode
+        document.getElementById('toggle-dark-mode').addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+
+</html>
